@@ -1,0 +1,15 @@
+{
+  "name": "server_mersenne",
+  "version": "1.0.0",
+  "description": "REST Server for Mersenne",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server",
+    "mersenne"
+  ],
+  "author": "Mersenne Team",
+  "license": "ISC"
+}

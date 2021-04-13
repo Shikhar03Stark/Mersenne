@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const passport = require('passport');
 const dotenv = require('dotenv').config();
+const session = require('express-session');
 
 if (dotenv.error){
     console.log(`Failed to fetch environment varibales`);
@@ -14,6 +15,11 @@ const port = process.env.PORT || 8080;
 //Middlewares
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
+app.use(session({
+    secret: 'mersenne',
+    resave: false,
+    saveUninitialized: false
+}))
 app.use(passport.initialize());
 app.use(passport.session());
 

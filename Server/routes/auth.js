@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('../config/passport');
+const restricted = require('../config/restricted');
 
 router.get('/google', passport.authenticate(
     'google',
@@ -8,12 +9,10 @@ router.get('/google', passport.authenticate(
     }
 ));
 
-router.get('/google/callback', passport.authenticate(
-    'google',
-    {
+router.get('/google/callback', passport.authenticate('google', {
         failureRedirect: '/auth/failed',
-    }
-), (req, res) => {
+    }), 
+    (req, res) => {
     res.json({
         status: 200,
         error : 'none',
@@ -27,6 +26,24 @@ router.get('/failed', (req, res) => {
         status: 401,
         error: 'OAuth Failed. PLease Try again',
         message: ""
+    })
+})
+
+router.get('/checksuccess', restricted, (req, res) => {
+    res.json({
+        status: 200,
+        error: 'none',
+        message : 'LoginCheck',
+        user : req.user,
+    })
+});
+
+router.get('/logout', restricted, (req, res) => {
+    req.logout();
+    res.json({
+        status: 200,
+        error: 'none',
+        message: 'logged out successfully',
     })
 })
 

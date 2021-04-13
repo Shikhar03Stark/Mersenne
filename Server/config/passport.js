@@ -15,7 +15,11 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-    done(null, user.id)
+    done(null, user._json)
+});
+
+passport.deserializeUser((id, done) => {
+    done(null, id)
 })
 
 module.exports = passport;

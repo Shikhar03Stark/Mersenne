@@ -1,0 +1,1 @@
+//passport middleware for restricted access to realm

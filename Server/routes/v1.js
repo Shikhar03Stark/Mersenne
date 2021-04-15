@@ -4,9 +4,9 @@ router.get('/', (req, res) => {
     res.json({
         status: 200,
         errors : 'none',
-        message : '',
+        message : 'debug session val',
         user: req.user,
-    });
+    }).status(200);
     console.log(req.user);
 });
 

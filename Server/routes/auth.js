@@ -18,7 +18,7 @@ router.get('/google/callback', passport.authenticate('google', {
         error : 'none',
         message : 'OAuth Successfull',
         user : req.user
-    })
+    }).status(200);
 });
 
 router.get('/failed', (req, res) => {
@@ -26,7 +26,7 @@ router.get('/failed', (req, res) => {
         status: 401,
         error: 'OAuth Failed. PLease Try again',
         message: ""
-    })
+    }).status(401);
 })
 
 router.get('/checksuccess', restricted, (req, res) => {
@@ -35,7 +35,7 @@ router.get('/checksuccess', restricted, (req, res) => {
         error: 'none',
         message : 'LoginCheck',
         user : req.user,
-    })
+    }).status(200);
 });
 
 router.get('/logout', restricted, (req, res) => {
@@ -44,7 +44,7 @@ router.get('/logout', restricted, (req, res) => {
         status: 200,
         error: 'none',
         message: 'logged out successfully',
-    })
+    }).status(200);
 })
 
 module.exports = router;

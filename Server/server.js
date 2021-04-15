@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
         status: 200,
         error : 'none',
         message : 'Server ready to serve'
-    })
+    }).status(200);
 })
 
 //Routes

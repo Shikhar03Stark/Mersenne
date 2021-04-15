@@ -1,4 +1,4 @@
 usecase/
 usecase.*
-node_modules/*
+node_modules/
 **/.env

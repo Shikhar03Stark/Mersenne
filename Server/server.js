@@ -12,6 +12,9 @@ if (dotenv.error){
 const app = express();
 const port = process.env.PORT || 8080;
 
+//Connect db
+const dbHanlde = require('./config/db');
+
 //Middlewares
 app.use(cors());
 app.use(express.urlencoded({extended: true}));

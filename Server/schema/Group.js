@@ -5,7 +5,7 @@ const GroupSchema = new mongoose.Schema({
         type: mongoose.SchemaType.ObjectId,
         required: true  
     },
-    uid: {
+    members: {
         type: [mongoose.SchemaType.ObjectId],
         required: true,
         default: () => []

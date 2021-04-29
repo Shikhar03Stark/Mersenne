@@ -2,3 +2,5 @@ usecase/
 usecase.*
 node_modules/
 **/.env
+*.gz
+*.tsv

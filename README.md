@@ -7,3 +7,8 @@ Smart Recommender System for Friends and Group to battle boredom
  - Run `cd Server/`
  - Run `npm install`
  - Run `npm run dev`
+
+## Populate Server/Hotdata
+
+ - Run `cd Server/`
+ - Run `NODE_ENV=production node server.js`

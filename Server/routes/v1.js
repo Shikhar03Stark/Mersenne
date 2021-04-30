@@ -29,6 +29,9 @@ const swaggerSpecs = swaggerJSDoc(options);
 router.use('/docs', swaggerUi.serve);
 router.get('/docs', swaggerUi.setup(swaggerSpecs));
 
+//sub routes
+router.use('/resource', require('./v1/resource.js'));
+
 router.get('/', (req, res) => {
     res.json({
         status: 200,

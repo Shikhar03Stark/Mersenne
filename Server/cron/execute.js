@@ -1,5 +1,7 @@
 const spawn = require('child_process').spawn;
 const event  = require('events');
+const express = require('express');
+const cacheMovies = require('../parser/loadMovies');
 
 const unzip = async () => {
     //const proc = new event.EventEmitter();
@@ -28,10 +30,15 @@ const download = async () => {
 
 }
 
-const execute = () => {
+const execute = (app) => {
     Promise.resolve(download()).then(code => {
         if(code == 0){
             Promise.resolve(unzip()).then(code => {
+                console.log(`Caching Started`);
+                cacheMovies().then(res => {
+                    app.set('movieCache', res);
+                    console.log(`Movies Cached`);
+                })
                 console.log(`Data Refreshed`);
             })
             .catch(e => {

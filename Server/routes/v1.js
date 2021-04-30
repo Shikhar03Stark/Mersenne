@@ -31,6 +31,7 @@ router.get('/docs', swaggerUi.setup(swaggerSpecs));
 
 //sub routes
 router.use('/resource', require('./v1/resource.js'));
+router.use('/recommend', require('./v1/recommend'));
 
 router.get('/', (req, res) => {
     res.json({

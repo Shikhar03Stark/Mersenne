@@ -75,6 +75,7 @@ router.get('/movie/:tconst', restricted, (req, res) => {
         }
         else{
             message.movie = result;
+            message.id = req.params.tconst;
             res.status(200);
         }
 
@@ -86,7 +87,8 @@ router.get('/movie/:tconst', restricted, (req, res) => {
             error: 'server error',
         })
     });
-})
+});
+
 
 
 module.exports = router;

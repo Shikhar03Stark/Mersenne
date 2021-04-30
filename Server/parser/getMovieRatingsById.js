@@ -5,6 +5,7 @@ const getMovieRatingsById = async (tconst) => {
     const parser = fs.createReadStream('./Hotdata/title.ratings.tsv')
     .pipe(parse({
         delimiter: '\t',
+        skip_lines_with_error: true,
     }));
 
     for await (const record of parser){
@@ -12,6 +13,9 @@ const getMovieRatingsById = async (tconst) => {
             return record;
         }
     }
+
+    //record not found
+    return null;
 }
 
 module.exports = getMovieRatingsById;
